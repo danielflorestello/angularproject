@@ -1,0 +1,16 @@
+<section class="text-center py-5">
+    @if (isLoggedIn) {
+    <p>Bienvenido, {{ username }}</p>
+    <img (click)="greet()" alt="" src="https://github.com/danielflorestello.png" alt="" />
+
+    } @else {
+    <p>!Inicia sesión¡</p>
+    <button class="btn btn-primary" (click)="isLoggedIn = true">Log In</button>
+    }
+
+    <app-games (addFavoriteEvent)="getFavorite($event)" username="{{ username }}"></app-games>
+
+    @if (favGame !== '') {
+    <p>Tu juego favorito es {{ favGame }}</p>
+    }
+</section>
